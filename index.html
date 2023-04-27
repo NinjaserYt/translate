@@ -1,0 +1,258 @@
+<style> body {
+  background-image: linear-gradient(135deg, #ffae34 10%, #ff34c3 100%);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 48px;
+  text-shadow: 2px 2px #333;
+}
+
+.prompt {
+  margin-top: 30px;
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 2px 2px #333;
+}
+
+.user-input-box {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #333;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #333;
+  cursor: pointer;
+}
+
+#response-container {
+  margin-top: 30px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  font-size: 18px;
+  text-align: center;
+  box-shadow: 2px 2px #333;
+}
+
+#response-container p {
+  margin-top: 10px;
+}
+
+#input-text {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #333;
+}
+
+#translate-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #333;
+  cursor: pointer;
+}
+
+#output-text {
+  margin-top: 10px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  font-size: 18px;
+  text-align: center;
+  box-shadow: 2px 2px #333;
+}
+
+#output-text p {
+  margin-top: 10px;
+}
+
+#inputText {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #333;
+}
+
+#emojiOutput {
+  margin-top: 10px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  font-size: 18px;
+  text-align: center;
+  box-shadow: 2px 2px #333;
+}
+
+#emojiOutput pre {
+  margin-top: 10px;
+}</style>
+
+
+
+<html>
+<body>
+  <h1>Army Code Translator</h1>
+  <div>
+  <p class="prompt">Army code translator:</p>
+  <input type="text" id="user-input" class="user-input-box">
+  <button onclick="generateResponse()">Send</button>
+</div>
+  <div id="response-container">
+</div>
+  
+  
+  <h1>Morse Code Translator</h1>
+  <label for="input-text"></label>
+  <textarea id="input-text" rows="5" cols="30"></textarea>
+  <button id="translate-btn">Translate</button>
+  <h2>Translated Text:</h2>
+  <div id="output-text"></div>
+  
+  <h1>Text to Emoji Translator</h1>
+    <textarea id="inputText" rows="5" cols="30" placeholder="Enter text to translate"></textarea><br>
+    <button onclick="translateToEmoji()">Translate to Emoji</button>
+    <h2>Emoji Result:</h2>
+    <pre id="emojiOutput"></pre>
+
+  <script>function generateResponse() {
+  const userInput = document.getElementById("user-input").value.toLowerCase();
+  let response = "";
+  
+  for(let i = 0; i < userInput.length; i++) {
+    const char = userInput[i];
+    
+    if(char === "a") {
+      response += "Alpha ";
+    } else if(char === "b") {
+      response += "Bravo ";
+    } else if(char === "c") {
+      response += "Charlie ";
+    } else if(char === "d") {
+      response += "Delta ";
+    } else if(char === "e") {
+      response += "Echo ";
+    } else if(char === "f") {
+      response += "Foxtrot ";
+    } else if(char === "g") {
+      response += "Golf ";
+    } else if(char === "h") {
+      response += "Hotel ";
+    } else if(char === "i") {
+      response += "India ";
+    } else if(char === "j") {
+      response += "Juliet ";
+    } else if(char === "k") {
+      response += "Kilo ";
+    } else if(char === "l") {
+      response += "Lima ";
+    } else if(char === "m") {
+      response += "Mike ";
+    } else if(char === "n") {
+      response += "November ";
+    } else if(char === "o") {
+      response += "Oscar ";
+    } else if(char === "p") {
+      response += "Papa ";
+    } else if(char === "q") {
+      response += "Quebec ";
+    } else if(char === "r") {
+      response += "Romeo ";
+    } else if(char === "s") {
+      response += "Sierra ";
+    } else if(char === "t") {
+      response += "Tango ";
+    } else if(char === "u") {
+      response += "Uniform ";
+    } else if(char === "v") {
+      response += "Victor ";
+    } else if(char === "w") {
+      response += "Whiskey ";
+    } else if(char === "x") {
+      response += "Xray ";
+    } else if(char === "y") {
+      response += "Yankee ";
+    } else if(char === "z") {
+      response += "Zulu ";
+    }
+  }
+  
+  const responseContainer = document.getElementById("response-container");
+  responseContainer.innerText = response;
+}
+// morce code
+const morseCodeMap = {
+  'a': '.-',   'b': '-...', 'c': '-.-.', 'd': '-..', 'e': '.', 'f': '..-.',
+  'g': '--.',   'h': '....', 'i': '..',   'j': '.---', 'k': '-.-', 'l': '.-..',
+  'm': '--',    'n': '-.',   'o': '---',  'p': '.--.', 'q': '--.-', 'r': '.-.',
+  's': '...',   't': '-',    'u': '..-',  'v': '...-', 'w': '.--', 'x': '-..-',
+  'y': '-.--',  'z': '--..', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
+  '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----', ' ': '/'
+};
+
+document.getElementById('translate-btn').addEventListener('click', function() {
+  const inputText = document.getElementById('input-text').value.toLowerCase();
+  const translatedText = translateToMorseCode(inputText);
+  document.getElementById('output-text').textContent = translatedText;
+});
+
+function translateToMorseCode(text) {
+  let morseCode = '';
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    if (morseCodeMap[char]) {
+      morseCode += morseCodeMap[char] + ' ';
+    } else {
+      morseCode += char + ' ';
+    }
+  }
+  return morseCode.trim();
+}
+
+//emoji
+
+const emojiMap = {
+            'a': '😀', 'b': '😃', 'c': '😄', 'd': '😁', 'e': '😆', 'f': '😅', 'g': '😂',
+            'h': '😊', 'i': '😇', 'j': '🙂', 'k': '🙃', 'l': '😉', 'm': '😌', 'n': '😍',
+            'o': '😘', 'p': '😗', 'q': '😙', 'r': '😚', 's': '😋', 't': '😜', 'u': '😝',
+            'v': '😛', 'w': '🤑', 'x': '😎', 'y': '🤓', 'z': '😏', ' ': '🔠'
+        };
+
+        function translateToEmoji() {
+            var inputText = document.getElementById("inputText").value.toLowerCase(); // Get input text from user and convert to lowercase
+            var emojiResult = ""; // Initialize emoji result string
+            for (var i = 0; i < inputText.length; i++) {
+                var char = inputText.charAt(i); // Get each character in the input text
+                var emojiChar = emojiMap[char] || char; // Get emoji character from emoji map, or use original character if not found
+                emojiResult += emojiChar + ' '; // Concatenate emoji character with a space separator
+            }
+            document.getElementById("emojiOutput").textContent = emojiResult; // Display emoji result in output area
+        }</script>
+</body>
+</html>
